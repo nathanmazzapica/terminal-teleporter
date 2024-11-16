@@ -3,7 +3,7 @@
 A simple command line tool to add convenient markers to jump around directories
 
 ## Demo
-![Tool Demo](tool-demo.gif
+![Tool Demo](tool-demo.gif)
 
 ## Installation
 
