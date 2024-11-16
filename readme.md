@@ -27,3 +27,11 @@ function tp() {
 To add a new marker run the `tp` command with the `-a` or `--add` flag and then the name of the marker to create
 
 To jump to a marker simply use `tp marker_name`
+
+
+## Important Notes
+
+Currently does **not** work on windows
+
+There is currently no way to delete or edit markers other than directly editing `~/term-tp/testfail.txt`
+*(yes, i need to rename the file)*
