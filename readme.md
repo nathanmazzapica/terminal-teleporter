@@ -2,6 +2,9 @@
 
 A simple command line tool to add convenient markers to jump around directories
 
+## Demo
+![Tool Demo](assets/tool-demo.gif
+
 ## Installation
 
 The following function must be added to your bash configuration (.bashrc / .zshrc)
