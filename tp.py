@@ -5,7 +5,8 @@ import argparse
 parser = argparse.ArgumentParser(description="Move quickly between directories.")
 
 parser.add_argument('-a', '--add', help='Adds a new marker by the provided name', action='store_true')
-parser.add_argument("name", help='The name of the marker to jump or modify')
+parser.add_argument('-l', '--list', help='Lists all existing markers', action='store_true')
+parser.add_argument("name", nargs='?', help='The name of the marker to jump or modify')
 
 args = parser.parse_args()
 
@@ -46,7 +47,12 @@ def add_to_dict(marker_name: str, path: str):
 dest_file = None
 def main():
     destinations = load_dict()
-    if args.add:
+    if args.list:
+        print(f"\n{'MARKER':20}:\tDESTINATION")
+        for marker in destinations:
+            print(f"{marker:20}:\t{destinations[marker]}")
+        print("\n")
+    elif args.add:
         cwd = os.getcwd()
         marker_name = args.name
         add_to_dict(marker_name, cwd)
