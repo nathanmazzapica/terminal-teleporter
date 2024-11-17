@@ -31,6 +31,8 @@ To add a new marker run the `tp` command with the `-a` or `--add` flag and then 
 
 To jump to a marker simply use `tp marker_name`
 
+To list all current markers use `tp -l` or `tp --list`
+
 
 ## Important Notes
 
