@@ -54,6 +54,3 @@ To execute a command at a target marker use the `tp -o marker_name command`. For
 ## Important Notes
 
 Currently does **not** work on windows
-
-There is currently no way to delete or edit markers other than directly editing `~/term-tp/testfail.txt`
-*(yes, i need to rename the file)*

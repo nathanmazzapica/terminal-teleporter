@@ -16,7 +16,7 @@ destinations_dir = os.path.join(os.environ["HOME"], "term-tp")
 def load_dict() -> dict[str, str]:
     destinations: dict[str, str] = {}
     try:
-        dest_file = open(f'{destinations_dir}/testfail.txt', 'r')
+        dest_file = open(f'{destinations_dir}/markers.txt', 'r')
         pairs = dest_file.read()
         for pair in pairs.split(";"):
             if len(pair) == 0:
@@ -37,7 +37,7 @@ def load_dict() -> dict[str, str]:
 
 def add_to_dict(marker_name: str, path: str):
     try:
-        dest_file = open(f'{destinations_dir}/testfail.txt', 'a')
+        dest_file = open(f'{destinations_dir}/markers.txt', 'a')
         dest_file.write(f'{marker_name}:{path};')
         print(f"Marker {marker_name} placed at {os.getcwd()}!")
     except FileNotFoundError:
@@ -48,7 +48,7 @@ def add_to_dict(marker_name: str, path: str):
 # I think explicitly typing dicts is good, but I don't like it anywhere else tbh
 def delete_from_dict(marker_name: str, destinations: dict [str, str]):
     try:
-        dest_file = open(f'{destinations_dir}/testfail.txt', 'w')
+        dest_file = open(f'{destinations_dir}/markers.txt', 'w')
         for marker in destinations:
             path = destinations[marker]
             dest_file.write(f'{marker}:{path};')
