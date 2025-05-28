@@ -1,15 +1,34 @@
 # Terminal Teleporter
 
-A simple command line tool to add convenient markers to jump around directories
+A lightweight command-line tool for setting quick navigation markers in your filesystem.
+
+Jump instantly between important directories using simple commands like:
+
+```bash
+tp projects
+```
+
+## Features
+- Save and name directory "teleporters"
+- Instantly jump to saved locations
+- Written in Python
 
 ## Demo
 ![Tool Demo](tool-demo.gif)
 
 ## Installation
 
-The following function must be added to your bash configuration (.bashrc / .zshrc)
+### 1. Clone the Repo
+```bash
+git clone https://github.com/nathanmazzapica/terminal-teleporter.git
+cp terminal-teleporter/tp.py ~/.local/bin/tp.py
+chmod +x `/.local/bin/tp.py
+```
 
-~/.local/bin/tp.py can be changed to wherever you wish to keep the script.
+### 2. Add the Shell Function
+
+Add the following to your `.bashrc` or `.zshrc`:
+
 
 ```bash
 function tp() {
@@ -29,17 +48,44 @@ function tp() {
 }
 ```
 
+Then reload your shell:
+
+```bash
+source ~/.bashrc
+# or
+source ~/.zshrc
+```
+
 ## Usage
 
-To add a new marker run the `tp` command with the `-a` or `--add` flag and then the name of the marker to create
+| Command                        | Description                         |
+|-------------------------------|-------------------------------------|
+| `tp --add <name>` or `-a`     | Adds a marker for the current dir   |
+| `tp <name>`                   | Teleports to the saved directory    |
+| `tp --list` or `-l`           | Lists all saved markers             |
+| `tp --delete <name>` or `-d`  | Deletes the saved marker            |
 
-To jump to a marker simply use `tp marker_name`
+## Example
 
-To list all current markers use `tp -l` or `tp --list`
+```bash
+cd ~/github.com/mysuperlongname/my-project-with-a-long-name
+tp --add proj
 
-To delete a marker use `tp -d marker_name` or `tp --delete marker_name`
+cd ~
+tp proj     # instantly jumps back to ~/github.com/mysuperlongname/my-project-with-a-long-name
+```
 
-To execute a command at a target marker use the `tp -o marker_name command`. For example, to create a directory at a marker named dt you could do `tp -o dt mkdir directory`
+
 ## Important Notes
 
-Currently does **not** work on windows
+- Currently **not compatible with Windows** due to shell reliance.
+- Requires `python3`.
+
+## Future Plans
+- Go rewrite for standalone binary use
+- Windows support ***(?)***
+- Searching/Fuzzy Match
+
+## Contributions Welcome!
+
+If you have suggestions or would like to help a young man out, feel free to open an issue or PR
