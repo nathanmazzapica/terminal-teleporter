@@ -1,4 +1,4 @@
-# Terminal Teleporter
+# 🔭 Terminal Teleporter
 
 A lightweight command-line tool for setting quick navigation markers in your filesystem.
 
